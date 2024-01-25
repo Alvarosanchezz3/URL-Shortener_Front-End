@@ -1,0 +1,37 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    margin: 0 20%;
+}
+
+footer p {
+    font-weight: 600;
+    color: rgb(63, 63, 63);
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 30px;
+}
+
+.icon:hover {
+    scale: 1.1;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 1920px) {
+
+    footer {
+        margin: 0 10%;
+    } 
+}

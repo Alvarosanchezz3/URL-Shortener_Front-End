@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="container">
+  <form (ngSubmit)="acortarUrl()" #urlForm="ngForm" class="form-links">
+    <div class="input-div">
+      <label for="longUrl">Enter the URL here:</label>
+      <input type="text" placeholder="https://" id="longUrl" name="longUrl" [(ngModel)]="longUrl" required #urlLarga="ngModel">    
+    </div>
+    
+    <div class="errors-container" *ngIf="urlLarga.invalid && (urlLarga.dirty || urlLarga.touched)">
+      <div *ngFor="let error of urlLarga.errors | keyvalue" class="error">
+        <p *ngIf="error.key === 'required'" class="error"><img src="\assets\icons\alert.svg" alt="alert-icon">You must enter a URL</p>
+      </div>
+    </div>
+
+    <div class="errors-container" *ngIf="!urlFormat && (longUrl.trim() !== '')">
+      <div class="error">
+        <p class="error"><img src="\assets\icons\alert.svg" alt="alert-icon">URL must start with "https://"</p>
+      </div>
+      
+    </div>
+      
+    <div class="input-div">
+      <label for="description">Description (optional):</label>
+      <textarea id="description" name="description" [(ngModel)]="description"></textarea>    
+    </div>
+      
+    <button type="submit" [disabled]="!validarFormatoUrl() || urlForm.invalid"><img src="/assets/icons/white-rocket.svg" alt="rocket">Create your link</button>
+  </form>
+</div>
+
+<app-footer></app-footer>

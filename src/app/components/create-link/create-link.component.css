@@ -1,0 +1,99 @@
+.container {
+    margin: 3% 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .form-links {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-links.disabled {
+        cursor: not-allowed;
+    }
+
+        .form-links .input-div{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+            .form-links .input-div label {
+                font-weight: 500;
+            }
+
+            .form-links .input-div input, textarea{
+                background-color: #2B2B2B;
+                color: #fff;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .form-links .input-div textarea {
+                height: 70px;
+            }
+
+            .form-links .input-div input::placeholder {
+                color: #b8b8b8;
+            }
+
+        .form-links .errors-container {
+            display: flex;
+            align-items: center;
+            font-weight: bolder;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        .form-links .errors-container .error {
+           background-color: #dc3b3b;
+           padding: 3px 5px;
+           border-radius: 5px;
+        }
+
+        .form-links .errors-container .error p {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-links .errors-container .error p img{
+            width: 20px;
+            margin-right: 6px;
+        }
+
+        .form-links button {
+            width: 10%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid;
+            color: #fff;
+            background-color: #2B2B2B;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .form-links button:disabled {
+            cursor: not-allowed;
+        }
+
+        .form-links button:hover {
+            color: #b8b8b8;
+        }
+
+            .form-links button img{
+                width: 20px;
+                margin-right: 7px;
+            }
+
+@media only screen and (max-width: 1920px) {
+
+    .container {
+        margin: 3% 10%;
+    }
+}

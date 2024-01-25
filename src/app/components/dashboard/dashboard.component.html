@@ -1,0 +1,66 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="container2">
+        <h2>Dashboard</h2>
+        <a routerLink="/create"><img src="/assets/icons/plus.svg" class="icon">Create new link</a>
+    </div>
+</div>
+
+<div class="dashboard">
+    <div *ngIf="urls.length === 0" class="empty-linksContainer">
+        <img src="/assets/icons/rocket.svg" alt="rocket">
+        <h3>Lets create your first link!</h3>
+        <a routerLink="/create">Create a link</a>
+    </div>
+
+    <div *ngIf="urls.length > 0" class="links-container">
+        <div *ngFor="let url of urls" class="url-item">
+            <div class="title-container">
+                <div class="title">
+                    <h2>{{ url.shortUrl }} </h2>
+                    <button (click)="copyToClipboard(baseUrl + url.shortUrl)" class="copy-btn"><img src="/assets/icons/copy.svg" alt="copy" class="icon"></button>    
+                </div>
+                <button (click)="togglePopup('options', true, url)" class="options-btn"><img src="/assets/icons/options.svg" alt="options" class="icon">Options</button>
+            </div> 
+            <p class="longUrl">{{ url.longUrl }}</p>
+            <p class="description">{{ url.description }}</p>
+            <div class="btn-container" [ngClass]="{'visible': selectedItem === url && (!isDeletePopupOpen || !isEditPopupOpen) }">
+                <button class="btn" (click)="copyToClipboard(baseUrl + url.shortUrl)"><img src="/assets/icons/white_copy.svg" alt="">Copy</button>
+                <button class="btn" (click)="togglePopup('edit', true, url)"><img src="/assets/icons/edit.svg" alt="">Edit</button>
+                <button class="btn" (click)="togglePopup('delete', true, url)"><img src="/assets/icons/trash.svg" alt="">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="message-copy-container" [ngClass]="{'active': stateCopy}">
+    <p>🚀 Copy to clipboard !</p>
+</div>
+
+<div *ngFor="let url of urls" class="pop-up pop-up-edit" [ngClass]="{'visible': isEditPopupOpen}">
+    <h2 class="link">Edit: {{ popupData.shortUrl }}</h2>
+    <form (ngSubmit)="updateUrlInfo(popupData.longUrl, description)">
+        <p class="message">Enter new description:</p>
+        <textarea type="text" placeholder="{{popupData.description}}" class="confirm-input" [(ngModel)]="description"
+               name="description"></textarea>
+        <div class="btn-container">
+            <button class="btn" type="button" (click)="togglePopup('edit', false, url)"><img src="/assets/icons/cancel.svg" alt="cancel" class="icon">Cancel</button>
+            <button class="btn btnDelete" type="submit" [disabled]="!description.trim()"><img src="/assets/icons/edit.svg" alt="edit" class="icon">Edit link</button>    
+        </div>
+    </form>
+</div>
+
+<div class="pop-up pop-up-delete" *ngFor="let url of urls" [ngClass]="{'visible': isDeletePopupOpen}">
+    <h2 class="link">Delete: {{ popupData.shortUrl }}</h2>
+    <p class="alert"><img src="\assets\icons\alert.svg" alt="alert">Are you sure to delete this link? This action <br>is irreversible.</p>
+    <p class="message">Enter "DELETE" to confirm:</p>
+    <form (ngSubmit)="deleteUrl(popupData.longUrl)">
+        <input type="text" placeholder="..." class="confirm-input" [(ngModel)]="confirmString"
+                name="confirmString">
+        <div class="btn-container">
+            <button class="btn" type="button" (click)="togglePopup('delete', false, url)"><img src="/assets/icons/cancel.svg" alt="cancel" class="icon">Cancel</button>
+            <button class="btn btnDelete" type="submit" [disabled]="confirmString !== 'DELETE'"><img src="/assets/icons/trash.svg" alt="trash" class="icon">Delete link</button>    
+        </div>
+    </form>    
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,20 @@
+<header>
+    <div class="header-container">
+        <a href="/" class="logo-container">
+            <img src="/assets/icons/link.svg" alt="link-icon">
+            <h1>Shorter</h1>
+        </a>
+
+        <div class="sign-in-container" *ngIf="isLoggedIn">
+            <a># {{ userName }}</a>
+            <img src="{{ userProfileImg }}" alt="profile-picture" class="img-profile">
+            <img routerLink="/dashboard" src="/assets/icons/dashboard.svg" alt="menu" class="img-dashboard">    
+            <a (click)="signOut()" class="logOut"><img src="/assets/icons/logOut.svg" alt="logOut" class="img-logOut"></a>                     
+        </div>
+        
+        <div class="sign-in-container" *ngIf="!isLoggedIn"> 
+            <a routerLink="/login">Sign in</a>
+            <a href="/login"><img src="/assets/icons/dashboard.svg" alt="menu" class="img-dashboard"></a>
+        </div>
+    </div>
+</header>
