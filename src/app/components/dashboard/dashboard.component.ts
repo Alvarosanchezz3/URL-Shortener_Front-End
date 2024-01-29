@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 export class DashboardComponent implements OnInit {
   email = '';
   urls: any[] = [];
-  baseUrl = "http://localhost:4200";
+  baseUrl = "https://shortener-urls.netlify.app";
 
   selectedItem: any = null;
   isDeletePopupOpen: boolean = false;
