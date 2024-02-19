@@ -12,13 +12,13 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink, HeaderComponent, FooterComponent],
   templateUrl: './dashboard.component.html',
-  styleUrls:  ['dashboard.component.css', 'dashboard.component.media_queries.css'],
+  styleUrl:  './dashboard.component.css',
   providers: [LinkService]
 })
 export class DashboardComponent implements OnInit {
   email = '';
   urls: any[] = [];
-  baseUrl = "http://localhost:4200";
+  baseUrl = "https://shortener-urls.netlify.app";
 
   selectedItem: any = null;
   isDeletePopupOpen: boolean = false;
