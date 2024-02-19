@@ -5,13 +5,13 @@ import { Injectable } from "@angular/core";
   providedIn: 'root'
 })
 export class LinkService {
-
-  urlBase: string = 'localhost:8080'
-  urlLongToRedirect: string = 'http://' + this.urlBase + '/api/url/redirect/'
-  urlLinksUser: string = 'http://' + this.urlBase + '/api/url/email/'
-  urlshorter: string = 'http://' + this.urlBase + '/api/url/shorten';
-  urlDeleteLinks: string = 'http://' + this.urlBase + '/api/url/delete'
-  urlUpdateLinks: string = 'http://' + this.urlBase + '/api/url/update'
+  
+  urlBase: string = 'api-url-shortener.fly.dev'
+  urlLongToRedirect: string = 'https://' + this.urlBase + '/api/url/redirect/'
+  urlLinksUser: string = 'https://' + this.urlBase + '/api/url/email/'
+  urlshorter: string = 'https://' + this.urlBase + '/api/url/shorten';
+  urlDeleteLinks: string = 'https://' + this.urlBase + '/api/url/delete'
+  urlUpdateLinks: string = 'https://' + this.urlBase + '/api/url/update'
 
   constructor(private http: HttpClient) {}
 

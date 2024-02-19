@@ -13,8 +13,8 @@ export class AuthService {
 
   email = '';
 
-  urlBase: string = 'localhost:8080'
-  urlRegister: string = 'http://' + this.urlBase + '/api/url/register';
+  urlBase: string = 'api-url-shortener.fly.dev'
+  urlRegister: string = 'https://' + this.urlBase + '/api/url/register';
 
   constructor(private router: Router, private http: HttpClient) {}
 
