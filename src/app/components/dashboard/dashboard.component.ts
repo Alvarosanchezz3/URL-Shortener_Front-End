@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink, HeaderComponent, FooterComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css',
+  styleUrls:  ['dashboard.component.css', 'dashboard.component.media_queries.css'],
   providers: [LinkService]
 })
 export class DashboardComponent implements OnInit {

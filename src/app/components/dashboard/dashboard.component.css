@@ -294,14 +294,3 @@
             .pop-up .btnDelete:disabled {
                 cursor: not-allowed;
             }
-
-@media only screen and (max-width: 1920px) {
-
-    .container2 {
-        margin: 1% 10% 0% 10%;
-    }
-
-    .dashboard {
-        margin: 1% 10%;
-    }
-}
